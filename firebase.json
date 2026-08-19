@@ -1,0 +1,36 @@
+{
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "emulators": {
+    "firestore": {
+      "port": 8080
+    },
+    "ui": {
+      "enabled": true,
+      "port": 4000
+    },
+    "singleProjectMode": false
+  },
+  "hosting": [
+    {
+      "target": "tanya-iman-app",
+      "public": "web/app/.output/public",
+      "ignore": ["**/.*"],
+      "rewrites": [{ "source": "**", "destination": "/index.html" }],
+      "headers": [
+        {
+          "source": "/embed.js",
+          "headers": [{ "key": "Cache-Control", "value": "public, max-age=300" }]
+        }
+      ]
+    },
+    {
+      "target": "tanya-iman-admin",
+      "public": "web/admin/.output/public",
+      "ignore": ["**/.*"],
+      "rewrites": [{ "source": "**", "destination": "/index.html" }]
+    }
+  ]
+}

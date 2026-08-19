@@ -1,0 +1,15 @@
+# The single repair attempt (AI Spec section 8.6).
+# {failure_list} renders one line per failed rule WITH THE MEASURED VALUE.
+# Generic instructions produce generic failures.
+
+Jawaban Anda sebelumnya tidak memenuhi aturan berikut:
+
+{failure_list}
+
+Jawaban Anda sebelumnya:
+{previous_answer}
+
+Perbaiki jawaban tersebut agar memenuhi semua aturan, tanpa mengubah maknanya
+dan tanpa menambah informasi dari luar kutipan yang sudah diberikan.
+
+Kembalikan JSON dengan format yang sama seperti sebelumnya.

@@ -1,0 +1,44 @@
+# Canonical Indonesian response copy.
+# Source of truth: docs/ai-answer-engine-specification.md section 10.
+#
+# These strings must be byte-identical to the matching keys in
+# web/app/locales/id.json. tests/test_copy_parity.py asserts that.
+#
+# Changing any string here is a product change and requires editorial sign-off
+# recorded in the PR (AI Spec section 14).
+
+greeting: |-
+  Selamat datang. Silakan tanyakan apa pun yang ada di hati Anda — tentang Allah, Isa Al-Masih, Kitab Suci, atau apa yang sedang Anda alami.
+
+source_note: "Jawaban disusun berdasarkan Kitab Suci."
+
+# F-10 — out of scope
+refusal: |-
+  Maaf, saya hanya dapat menjawab pertanyaan seputar iman dan pergumulan hati.
+
+  Silakan bertanya tentang Allah, Isa Al-Masih, Kitab Suci, atau apa pun yang sedang Anda rasakan.
+
+# F-29 — retrieval found nothing above threshold
+no_grounding: |-
+  Maaf, saya belum memiliki bahan yang cukup untuk menjawab pertanyaan itu dengan baik.
+
+  Pertanyaan Anda sudah kami catat, agar tim kami dapat menyiapkan jawabannya. Sementara itu, Anda boleh bertanya tentang hal lain yang sedang Anda pikirkan.
+
+# F-28 — answer failed validation twice
+fallback: |-
+  Maaf, saya belum dapat menyusun jawaban yang layak untuk pertanyaan ini. Tim kami akan meninjaunya.
+
+  Silakan coba menanyakannya dengan cara lain, atau tanyakan hal lain.
+
+# F-16 — {minutes} is interpolated by the caller
+rate_limit: "Anda telah mencapai batas 30 pertanyaan dalam satu jam. Silakan kembali lagi dalam {minutes} menit."
+
+# F-27
+error: "Maaf, terjadi gangguan saat menyiapkan jawaban."
+
+identity: |-
+  Saya Tanya Iman, sebuah layanan yang menjawab pertanyaan berdasarkan tulisan dari beberapa situs dialog keagamaan berbahasa Indonesia. Saya bukan manusia, dan saya hanya menjawab dari bahan-bahan tersebut.
+
+input_too_long: "Pertanyaan Anda terlalu panjang. Mohon persingkat menjadi paling banyak 1.000 karakter."
+
+input_empty: "Silakan tulis pertanyaan Anda terlebih dahulu."

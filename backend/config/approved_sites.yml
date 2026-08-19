@@ -1,0 +1,25 @@
+# The single allowlist. Used by the crawler (write time), the retriever (query
+# time), and the citation validator (display time). Three independent gates on
+# the same list, because F-15 is the product's central promise.
+#
+# CHANGING THIS FILE CHANGES THE PRODUCT'S CENTRAL PROMISE.
+# The list starts at five sites and is expected to grow. Adding or removing a
+# domain requires a PRD update (sections 5.3 and 6.8), a crawl, and a review
+# of every curated answer citing a removed site. It is not a config tweak.
+
+sites:
+  - domain: isadanislam.org
+    sitemap: https://isadanislam.org/sitemap.xml
+  - domain: isadanalquran.com
+    sitemap: https://isadanalquran.com/sitemap.xml
+  - domain: isadanalfatihah.com
+    sitemap: https://isadanalfatihah.com/sitemap.xml
+  - domain: isaislamdankaumwanita.com
+    sitemap: https://isaislamdankaumwanita.com/sitemap.xml
+  - domain: takutneraka.com
+    sitemap: https://takutneraka.com/sitemap.xml
+
+crawl:
+  politeness_delay_seconds: 2
+  user_agent: "TanyaImanBot/1.0 (+https://tanyaiman.id/bot)"
+  respect_robots_txt: true

@@ -1,0 +1,20 @@
+# Tier 2 of validator V5 (AI Spec section 8.5).
+# Never runs in the user's request path — repairs, staging, and a 10% production
+# sample only.
+
+Anda adalah pemeriksa. Di bawah ini ada beberapa kutipan sumber dan sebuah
+jawaban yang ditulis berdasarkan kutipan itu.
+
+KUTIPAN:
+{passages}
+
+JAWABAN:
+{answer}
+
+Untuk setiap kalimat dalam jawaban, tentukan apakah kalimat itu didukung oleh
+kutipan. Kalimat yang bersifat penghiburan umum atau ajakan lembut boleh
+dianggap "supported" selama tidak menambahkan klaim faktual atau ajaran baru.
+
+Kembalikan JSON:
+{"sentences": [{"text": "...", "supported": true|false, "reason": "..."}],
+ "overall_supported": true|false}

@@ -1,0 +1,22 @@
+{
+  "name": "tanya-iman",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Tanya Iman — Indonesian faith and emotional Q&A assistant",
+  "workspaces": [
+    "web/shared",
+    "web/app",
+    "web/admin"
+  ],
+  "scripts": {
+    "dev:app": "npm run dev --workspace web/app",
+    "dev:admin": "npm run dev --workspace web/admin",
+    "build:app": "npm run generate --workspace web/app",
+    "build:admin": "npm run generate --workspace web/admin",
+    "test": "npm run test --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

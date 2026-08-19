@@ -1,0 +1,90 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [dev, main]
+  push:
+    branches: [dev, main]
+
+jobs:
+  backend:
+    name: Backend
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Sync dependencies
+        run: uv sync --all-extras
+
+      - name: Lint
+        run: uv run ruff check .
+
+      - name: Format check
+        run: uv run ruff format --check .
+
+      - name: Tests
+        run: uv run pytest -v
+
+  shared:
+    name: Shared
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      # The word counter has a twin in backend/services/text.py. Both suites
+      # run on every PR because a silent divergence between them is what makes
+      # the admin editor's live counter untrustworthy.
+      - run: npm test --workspace web/shared
+
+  frontend:
+    name: Frontend (${{ matrix.app }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        app: [app, admin]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck --workspace web/${{ matrix.app }}
+
+      - name: Build
+        run: npm run generate --workspace web/${{ matrix.app }}
+        env:
+          # CI builds must never bake a developer's local API base.
+          # See Deployment Guide section 5.
+          NUXT_PUBLIC_API_BASE: https://api-staging.tanyaiman.id
+
+  secrets:
+    name: Secret scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Reject committed env and credential files
+        run: |
+          if git ls-files | grep -E '(^|/)\.env$|serviceAccount.*\.json$|\.keystore$|\.jks$'; then
+            echo "::error::Credential or env file committed"
+            exit 1
+          fi

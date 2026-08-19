@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* Indonesian text at conversational length reads poorly at the browser
+     default. 15px/1.7 is the body setting used throughout the chat surface. */
+  body {
+    font-family:
+      ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    text-rendering: optimizeLegibility;
+  }
+}

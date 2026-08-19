@@ -1,0 +1,70 @@
+# ============================================================================
+# DEPLOYMENT GATE — BLOCKING. THIS FILE IS A PLACEHOLDER.
+#
+# Every string below is unapproved and every helpline number is fake.
+# The application REFUSES TO START when ENV is staging or production while
+# `approved: false` — see config/settings.py. Do not flip that flag to work
+# around a failing boot.
+#
+# Owner: editorial team. Tracked as PIP B1.
+# Shipping a wrong helpline number is a P0 safety defect.
+#
+# Required before approval:
+#   1. Copy written and signed off by the editorial owner
+#   2. Every number called and confirmed reachable
+#   3. `verified_on` set to the date of that check
+#   4. Numbers re-verified within 30 days of launch, and every 90 days after
+#
+# Structure the approved script must follow (AI Spec section 10.4):
+#   1. Acknowledge, without theology, that what they said matters
+#   2. State plainly this is beyond what the service can help with
+#   3. At least one Indonesian helpline, named, tappable on mobile
+#   4. Encourage contact with one trusted person nearby
+#   5. Close warmly, with no call to action and NO SCRIPTURE
+#
+# Scripture is deliberately excluded. A person in acute crisis needs a phone
+# number, not an argument, and mixing the two risks the message reading as
+# proselytising at a vulnerable moment.
+# ============================================================================
+
+approved: false
+verified_on: null
+approved_by: null
+
+response: |-
+  [PLACEHOLDER — TIDAK BOLEH DIPAKAI]
+
+  Apa yang Anda sampaikan itu penting, dan Anda tidak sendirian.
+
+  Hal ini di luar yang dapat saya bantu. Mohon hubungi salah satu nomor di bawah ini sekarang — ada orang yang siap mendengarkan.
+
+  {helplines}
+
+  Jika memungkinkan, sampaikan juga kepada satu orang terdekat yang Anda percaya.
+
+  Saya di sini kapan pun Anda ingin kembali.
+
+helplines:
+  - name: "[PLACEHOLDER — nama layanan belum diverifikasi]"
+    number: "000"
+    hours: "[belum diverifikasi]"
+  - name: "[PLACEHOLDER — nama layanan belum diverifikasi]"
+    number: "000"
+    hours: "[belum diverifikasi]"
+
+# Indonesian keywords and phrases that trip the crisis guard before any other
+# processing. Deliberately over-inclusive: a false positive shows someone a
+# helpline they did not need, a false negative is a P0 defect.
+# Reviewed by the editorial team alongside the copy above.
+triggers:
+  keywords:
+    - "bunuh diri"
+    - "mengakhiri hidup"
+    - "ingin mati"
+    - "tidak ingin hidup"
+    - "menyakiti diri"
+    - "melukai diri"
+    - "sudah tidak sanggup lagi"
+    - "tidak ada gunanya hidup"
+    - "lebih baik saya mati"
+  semantic_check: true

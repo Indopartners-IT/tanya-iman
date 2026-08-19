@@ -1,0 +1,50 @@
+# The topic taxonomy. Source of truth: PRD Appendix A.
+# Each topic is a grouping key for admin analytics (F-21) and a slot for a
+# curated answer (F-23).
+#
+# `lainnya` is a legitimate outcome, not a failure. A rising `lainnya` count is
+# the signal that this taxonomy needs extending.
+
+topics:
+  - slug: kasih-allah
+    name_id: Kasih Allah
+    name_en: Love of Allah
+  - slug: jalan-keselamatan
+    name_id: Jalan Keselamatan
+    name_en: Path of Salvation
+  - slug: takut-neraka
+    name_id: Takut Neraka
+    name_en: Fear of Hell
+  - slug: ketenangan-hati
+    name_id: Ketenangan Hati
+    name_en: Peace of Mind
+  - slug: dosa-pengampunan
+    name_id: Dosa & Pengampunan
+    name_en: Sin & Forgiveness
+  - slug: duka-kehilangan
+    name_id: Duka & Kehilangan
+    name_en: Grief & Loss
+  - slug: kecemasan-depresi
+    name_id: Kecemasan & Depresi
+    name_en: Anxiety & Depression
+  - slug: pernikahan-keluarga
+    name_id: Pernikahan & Keluarga
+    name_en: Marriage & Family
+  - slug: jati-diri-isa-almasih
+    name_id: Jati Diri Isa Al-Masih
+    name_en: Identity of Isa Al-Masih
+  - slug: kematian-isa-almasih
+    name_id: Kematian Isa Al-Masih
+    name_en: Death of Isa Al-Masih
+  - slug: keaslian-kitab-suci
+    name_id: Keaslian Kitab Suci
+    name_en: Authenticity of the Holy Scripture
+  - slug: ibadah-puasa
+    name_id: Ibadah & Puasa
+    name_en: Worship & Fasting
+  - slug: pencarian-kebenaran
+    name_id: Pencarian Kebenaran
+    name_en: Search for Truth
+  - slug: lainnya
+    name_id: Lainnya
+    name_en: Other
